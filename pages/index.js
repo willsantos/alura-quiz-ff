@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Head from "next/head";
+import Link from "next/link";
 import db from "../db.json";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
@@ -39,6 +40,11 @@ export default function Home() {
             </Widget.Header>
             <Widget.Content>
               <p>{db.description}</p>
+              <Widget.Input defaultValue="Qual o seu nome?" type="text" />
+
+              <Link href="/quiz">
+                <Widget.Button>Jogar</Widget.Button>
+              </Link>
             </Widget.Content>
           </Widget>
 

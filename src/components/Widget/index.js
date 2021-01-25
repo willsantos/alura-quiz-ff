@@ -50,5 +50,26 @@ Widget.Content = styled.div`
     padding: 0;
   }
 `;
+Widget.Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  padding: 18px 32px;
+  width: 100%;
+  height: 15px;
+  border: none;
+  border-radius: 5px;
+`;
+
+Widget.Input = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 5px;
+  border-color: ${({ theme }) => theme.colors.secondary};
+`;
 
 export default Widget;
