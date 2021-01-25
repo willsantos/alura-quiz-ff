@@ -5,6 +5,7 @@ import QuizLogo from "../src/components/QuizLogo";
 import QuizBackground from "../src/components/QuizBackground";
 import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
+import Head from "next/head";
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -20,6 +21,15 @@ export const QuizContainer = styled.div`
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Meu Quiz</title>
+        <meta property="og:title" content="Quiz Futebol Feminino" key="title" />
+        <meta property="og:description" content={db.description} key="title" />
+        <meta property="og:image" content="/screenshot.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+      </Head>
       <QuizBackground backgroundImage={db.bg}>
         <QuizContainer>
           <QuizLogo />
