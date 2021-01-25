@@ -1,5 +1,5 @@
 {
-  "bg": "https://i2.wp.com/css-tricks.com/wp-content/uploads/2017/06/css-is-awesome-scaled.jpg?resize=1536%2C1208&ssl=1",
+  "bg": "https://dm2301files.storage.live.com/y4m_HCpSCtXE-77sXW1xqz2-3KD5e6tPzRODHh1ENTDK8GKTC7GQZq_BQDZBGxtLVjXDiM_oqPTbYEw_EVFmyq57_CqdiU8slOJd-j1iz6N2xiYGfpQazFcNiz6kgGY_hIwXUVI8lst9_wS3jjgkhzSoj7sbBfBcwMG6byHQOlkw9rJ-njx_qoPVYujsN7fF_p-?width=1280&height=427&cropmode=none",
   "title": "Quiz do Futebol Feminino",
   "description": "Teste os seus conhecimentos sobre o universo do futebol feminino",
   "questions": [
@@ -31,9 +31,9 @@
   ],
   "theme": {
     "colors": {
-      "primary": "#b26500",
-      "secondary": "#00695f",
-      "mainBg": "#00695f",
+      "primary": "#324832",
+      "secondary": "#748d55",
+      "mainBg": "#324832",
       "contrastText": "#FFFFFF",
       "wrong": "#ff1744",
       "success": "#4CAF50"
