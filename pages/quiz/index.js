@@ -33,7 +33,7 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
         <h1>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h1>
       </Widget.Header>
       <img
-        src="https://via.placeholder.com/400.png"
+        src={question.image}
         style={{
           width: "100%",
           height: "150px",
