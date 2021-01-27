@@ -23,7 +23,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Meu Quiz</title>
+        <title>Quiz Futebol Feminino</title>
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:creator" content="@willsantos" />
         <meta property="og:title" content="Quiz Futebol Feminino" key="title" />
         <meta property="og:description" content={db.description} key="title" />
         <meta property="og:image" content="/screenshot.png" />
@@ -40,7 +42,7 @@ export default function Home() {
             </Widget.Header>
             <Widget.Content>
               <p>{db.description}</p>
-              <Widget.Input defaultValue="Qual o seu nome?" type="text" />
+              <Widget.Input placeholder="Qual o seu nome?" type="text" />
 
               <Link href="/quiz">
                 <Widget.Button>Jogar</Widget.Button>
@@ -56,7 +58,7 @@ export default function Home() {
           </Widget>
           <Footer />
         </QuizContainer>
-        <GitHubCorner projectUrl="https://github.com/willsantos" />
+        <GitHubCorner projectUrl="https://github.com/willsantos/alura-quiz-ff" />
       </QuizBackground>
     </>
   );
