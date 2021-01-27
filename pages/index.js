@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
 import Link from "next/link";
@@ -21,6 +22,11 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const [name, setName] = useState("");
+
+  const handleChangeName = (event) => {
+    setName(event.target.value);
+  };
   return (
     <>
       <Head>
@@ -41,12 +47,17 @@ export default function Home() {
             <Widget.Header>
               <h1>{db.title}</h1>
             </Widget.Header>
+            <center>{name}</center>
             <Widget.Content>
               <p>{db.description}</p>
-              <Input placeholder="Qual o seu nome?" type="text" />
+              <Input
+                placeholder="Qual o seu nome?"
+                type="text"
+                onChange={handleChangeName}
+              />
 
               <Link href="/quiz">
-                <Widget.Button>Jogar</Widget.Button>
+                <Widget.Button type="submit">Jogar</Widget.Button>
               </Link>
             </Widget.Content>
           </Widget>
