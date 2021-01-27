@@ -24,6 +24,17 @@
          "Alex Morgan",
          "Marta"
       ]
+    },
+    {
+      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+      "title": "Qual destas jogadoras ?",
+      "description": "Faz tempo em haha",
+      "answer": 2,
+      "alternatives": [
+         "Alex Morgan",
+         "Marta",
+         "Debinha"
+      ]
     }
   ],
   "external": [
