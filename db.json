@@ -24,6 +24,17 @@
          "Alex Morgan",
          "Marta"
       ]
+    },
+    {
+      "image": "https://media.giphy.com/media/US7wbCG5yF9E2MzDpA/giphy.gif",
+      "title": "Quem é essa jogadora?",
+      "description": "Faz tempo em haha",
+      "answer": 2,
+      "alternatives": [
+         "Alex Morgan",
+         "Marta",
+         "Debinha"
+      ]
     }
   ],
   "external": [

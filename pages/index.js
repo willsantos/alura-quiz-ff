@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
 import Link from "next/link";
@@ -7,19 +8,16 @@ import GitHubCorner from "../src/components/GitHubCorner";
 import QuizBackground from "../src/components/QuizBackground";
 import QuizLogo from "../src/components/QuizLogo";
 import Widget from "../src/components/Widget";
-
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
+import Input from "../src/components/Input";
+import Button from "../src/components/Button";
+import QuizContainer from "../src/components/QuizContainer";
 
 export default function Home() {
+  const [name, setName] = useState("");
+
+  const handleChangeName = (event) => {
+    setName(event.target.value);
+  };
   return (
     <>
       <Head>
@@ -40,12 +38,21 @@ export default function Home() {
             <Widget.Header>
               <h1>{db.title}</h1>
             </Widget.Header>
+            <center>{name}</center>
             <Widget.Content>
               <p>{db.description}</p>
-              <Widget.Input placeholder="Qual o seu nome?" type="text" />
+              <Input
+                name="username"
+                placeholder="Qual o seu nome?"
+                type="text"
+                onChange={handleChangeName}
+                value={name}
+              />
 
               <Link href="/quiz">
-                <Widget.Button>Jogar</Widget.Button>
+                <Button type="submit" disabled={name.length < 3}>
+                  Jogar
+                </Button>
               </Link>
             </Widget.Content>
           </Widget>
