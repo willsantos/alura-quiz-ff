@@ -47,7 +47,7 @@
       "mainBg": "#324832",
       "contrastText": "#FFFFFF",
       "wrong": "#ff1744",
-      "success": "#4CAF50"
+      "success": "#64b5f6"
     },
     "borderRadius": "4px"
   }
