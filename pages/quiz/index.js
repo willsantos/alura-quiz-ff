@@ -23,9 +23,18 @@ function LoadingWidget() {
 }
 
 function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
+  const [selectedAlternative, setSelectedAlternative] = useState(undefined);
+  const [isQuestionSubmited, setIsQuestionSubmited] = useState(false);
+  const isCorrect = selectedAlternative === question.answer;
+
   function handleSubmit(event) {
     event.preventDefault();
-    onSubmit();
+    setIsQuestionSubmited(true);
+    setTimeout(() => {
+      onSubmit();
+      setIsQuestionSubmited(false);
+      setSelectedAlternative(undefined);
+    }, 2 * 1000);
   }
   return (
     <Widget>
@@ -54,14 +63,28 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit }) {
                   key={alternativeId}
                 >
                   {alternative}
-                  <input id={alternativeId} type="radio" name="alternatives" />
+                  <input
+                    id={alternativeId}
+                    type="radio"
+                    name="alternatives"
+                    onChange={() => setSelectedAlternative(alternativeIndex)}
+                    default="false"
+                  />
                 </Widget.Topic>
                 <br />
               </>
             );
           })}
 
-          <Button type="submit">Confirmar</Button>
+          <Button
+            type="submit"
+            disabled={selectedAlternative === undefined ? "true" : false}
+          >
+            Confirmar
+          </Button>
+          <p>Você selecionou a alternativa{" " + selectedAlternative}</p>
+          {isQuestionSubmited && isCorrect && <p>Você acertou!</p>}
+          {isQuestionSubmited && !isCorrect && <p>Você errou!</p>}
         </form>
       </Widget.Content>
     </Widget>
@@ -82,13 +105,14 @@ export default function Quiz() {
   const question = db.questions[questionIndex];
 
   useEffect(() => {
-    setTimeout(() => {
-      setSecreenState(screenStates.QUIZ);
-    }, 3 * 1000);
+    setTimeout(
+      () => {
+        setSecreenState(screenStates.QUIZ);
+      } /* 3 * 1000 */
+    );
   }, []);
 
   function handleSubmit() {
-    console.log("question index", questionIndex);
     const nextQuestion = questionIndex + 1;
     if (nextQuestion < totalQuestions) {
       setQuestionIndex(nextQuestion);
