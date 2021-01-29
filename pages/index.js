@@ -11,13 +11,21 @@ import Widget from "../src/components/Widget";
 import Input from "../src/components/Input";
 import Button from "../src/components/Button";
 import QuizContainer from "../src/components/QuizContainer";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   const [name, setName] = useState("");
 
   const handleChangeName = (event) => {
     setName(event.target.value);
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    router.push(`/quiz?name=${name}`);
+  };
+
   return (
     <>
       <Head>
@@ -41,19 +49,19 @@ export default function Home() {
             <center>{name}</center>
             <Widget.Content>
               <p>{db.description}</p>
-              <Input
-                name="username"
-                placeholder="Qual o seu nome?"
-                type="text"
-                onChange={handleChangeName}
-                value={name}
-              />
+              <form onSubmit={handleSubmit}>
+                <Input
+                  name="username"
+                  placeholder="Qual o seu nome?"
+                  type="text"
+                  onChange={handleChangeName}
+                  value={name}
+                />
 
-              <Link href="/quiz">
                 <Button type="submit" disabled={name.length < 3}>
                   Jogar
                 </Button>
-              </Link>
+              </form>
             </Widget.Content>
           </Widget>
 

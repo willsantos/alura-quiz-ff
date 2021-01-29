@@ -12,11 +12,14 @@ import Input from "../../src/components/Input";
 import Button from "../../src/components/Button";
 import QuizContainer from "../../src/components/QuizContainer";
 import AlternativesForm from "../../src/components/AlternativesForm";
+import { useRouter } from "next/router";
 
 function ResultsWidget({ results }) {
+  const router = useRouter();
+  const player = router.query.name;
   return (
     <Widget>
-      <Widget.Header>Seus Resultados</Widget.Header>
+      <Widget.Header>{`Parabéns ${player} seus resultados:`}</Widget.Header>
 
       <Widget.Content>
         <p>
