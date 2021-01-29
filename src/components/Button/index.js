@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+import { useState } from "react";
+import styled from "styled-components";
 
-const Button = styled.button`
+const ButtonBase = styled.button`
   background-color: ${({ theme }) => theme.colors.secondary};
   color: ${({ theme }) => theme.colors.contrastText};
   border-radius: ${({ theme }) => theme.borderRadius};
@@ -13,11 +15,11 @@ const Button = styled.button`
   line-height: 1;
   text-transform: uppercase;
   outline: 0;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
   &:hover,
   &:focus {
-    opacity: .5;
+    opacity: 0.5;
   }
   &:disabled {
     background-color: #979797;
@@ -25,9 +27,20 @@ const Button = styled.button`
   }
 `;
 
-Button.propTypes = {
-  type: PropTypes.oneOf(['submit', 'type', 'button']).isRequired,
+ButtonBase.propTypes = {
+  type: PropTypes.oneOf(["submit", "type", "button"]).isRequired,
   children: PropTypes.node.isRequired,
 };
 
-export default Button;
+export default function Button({ children, ...props }) {
+  return (
+    <div>
+      {!props.disabled && (
+        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          <ButtonBase {...props}>{children}</ButtonBase>
+        </motion.div>
+      )}
+      {props.disabled && <ButtonBase {...props}>{children}</ButtonBase>}
+    </div>
+  );
+}

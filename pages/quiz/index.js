@@ -13,6 +13,7 @@ import Button from "../../src/components/Button";
 import QuizContainer from "../../src/components/QuizContainer";
 import AlternativesForm from "../../src/components/AlternativesForm";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 function ResultsWidget({ results, totalQuestions }) {
   const router = useRouter();
@@ -95,7 +96,16 @@ function QuestionWidget({
     }, 2 * 1000);
   }
   return (
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay: 0.2, duration: 0.5 }}
+      variants={{
+        show: { opacity: 1 },
+        hidden: { opacity: 0 },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
         <h1>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h1>
       </Widget.Header>

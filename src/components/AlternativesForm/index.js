@@ -15,6 +15,7 @@ const AlternativesForm = styled.form`
     &:focus {
       opacity: 1;
     }
+    cursor: pointer;
   }
   button {
     margin-top: 24px;
