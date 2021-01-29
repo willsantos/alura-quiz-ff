@@ -14,7 +14,7 @@ import QuizContainer from "../../src/components/QuizContainer";
 import AlternativesForm from "../../src/components/AlternativesForm";
 import { useRouter } from "next/router";
 
-function ResultsWidget({ results }) {
+function ResultsWidget({ results, totalQuestions }) {
   const router = useRouter();
   const player = router.query.name;
   return (
@@ -33,7 +33,7 @@ function ResultsWidget({ results }) {
               return total;
             }, 0) +
             " "}
-          de 3 perguntas
+          de {` ${totalQuestions} `} perguntas.
         </p>
         <ul>
           {results.map((result, index) => {
@@ -210,7 +210,7 @@ export default function Quiz() {
             />
           )}
           {screenState === screenStates.RESULT && (
-            <ResultsWidget results={results} />
+            <ResultsWidget results={results} totalQuestions={totalQuestions} />
           )}
 
           <Footer />
