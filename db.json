@@ -7,7 +7,7 @@
       "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
       "title": "Qual Seleção ganhou mais copas do mundo?",
       "description": "Essa é pra aquecer",
-      "answer": 2,
+      "answer": 0,
       "alternatives": [
         "EUA",
         "Brasil",
@@ -17,23 +17,50 @@
     },
     {
       "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Qual destas jogadoras marcou mais gols em uma mesma Copa?",
-      "description": "Faz tempo em haha",
-      "answer": 1,
+      "title": "Quando foi disputada a primeira copa do mundo de futebol feminino?",
+      "description": "Faz tempo (?)",
+      "answer": 2,
       "alternatives": [
-         "Alex Morgan",
-         "Marta"
+         "1971",
+         "1981",
+         "1991",
+         "1995"
       ]
     },
     {
       "image": "https://media.giphy.com/media/US7wbCG5yF9E2MzDpA/giphy.gif",
-      "title": "Quem é essa jogadora?",
-      "description": "Faz tempo em haha",
+      "title": "Quais seleções ficaram mais vezes na terceira colocação em copas?",
+      "description": "2 dessas seleções venceram 3 vezes a disputa de terceiro lugar",
+      "answer": 0,
+      "alternatives": [
+         "EUA e Suecia",
+         "EUA e Japão",
+         "Suecia e Japão",
+         "Alemanha e Japão"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/US7wbCG5yF9E2MzDpA/giphy.gif",
+      "title": "Quantos vezes a seleção brasileira venceu a copa do Mundo? ",
+      "description": " ",
+      "answer": 1,
+      "alternatives": [
+         "Quatro vezes",
+         "Nenhuma vez, mas foi vice uma vez",
+         "Nenhuma vez, mas ficou 2 vezes em terceiro",
+         "Nenhuma"
+      ]
+    },
+    {
+      "image": "https://media.giphy.com/media/US7wbCG5yF9E2MzDpA/giphy.gif",
+      "title": "Quem é a maior artilheira em copas do mundo?",
+      "description": " ",
       "answer": 2,
       "alternatives": [
-         "Alex Morgan",
-         "Marta",
-         "Debinha"
+         "Sun Wen (CHN)",
+         "Birgit Prinz (ALE)",
+         "Marta (BRA)",
+         "Abby Wambach(EUA)"
       ]
     }
   ],
