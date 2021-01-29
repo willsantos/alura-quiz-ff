@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import React from "react";
-
 function Logo({ className }) {
   return (
     <svg
