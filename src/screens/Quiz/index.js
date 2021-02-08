@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
 import Link from "next/link";
-import db from "../../db.json";
-import Footer from "../../src/components/Footer";
-import GitHubCorner from "../../src/components/GitHubCorner";
-import QuizBackground from "../../src/components/QuizBackground";
-import QuizLogo from "../../src/components/QuizLogo";
-import Widget from "../../src/components/Widget";
-import Input from "../../src/components/Input";
-import Button from "../../src/components/Button";
-import QuizContainer from "../../src/components/QuizContainer";
-import AlternativesForm from "../../src/components/AlternativesForm";
+/* import db from "../../../db.json"; */
+import Footer from "../../components/Footer";
+import GitHubCorner from "../../components/GitHubCorner";
+import QuizBackground from "../../components/QuizBackground";
+import QuizLogo from "../../components/QuizLogo";
+import Widget from "../../components/Widget";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
+import QuizContainer from "../../components/QuizContainer";
+import AlternativesForm from "../../components/AlternativesForm";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
+import BackLinkArrow from "../../components/BackLinkArrow";
 
 function ResultsWidget({ results, totalQuestions }) {
   const router = useRouter();
@@ -96,17 +96,9 @@ function QuestionWidget({
     }, 2 * 1000);
   }
   return (
-    <Widget
-      as={motion.section}
-      transition={{ delay: 0.2, duration: 0.5 }}
-      variants={{
-        show: { opacity: 1 },
-        hidden: { opacity: 0 },
-      }}
-      initial="hidden"
-      animate="show"
-    >
+    <Widget>
       <Widget.Header>
+        <BackLinkArrow href="/" />
         <h1>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h1>
       </Widget.Header>
       <img
@@ -167,12 +159,12 @@ const screenStates = {
   RESULT: "RESULT",
 };
 
-export default function Quiz() {
+export default function Quiz({ externalQuestions }) {
   const [screenState, setSecreenState] = useState(screenStates.LOADING);
   const [results, setResults] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
-  const totalQuestions = db.questions.length;
-  const question = db.questions[questionIndex];
+  const totalQuestions = externalQuestions.questions.length;
+  const question = externalQuestions.questions[questionIndex];
 
   function addResult(result) {
     setResults([...results, result]);
@@ -200,13 +192,17 @@ export default function Quiz() {
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:creator" content="@willsantos" />
         <meta property="og:title" content="Quiz Futebol Feminino" key="title" />
-        <meta property="og:description" content={db.description} key="title" />
+        <meta
+          property="og:description"
+          content={externalQuestions.description}
+          key="title"
+        />
         <meta property="og:image" content="/screenshot.png" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="600" />
       </Head>
-      <QuizBackground backgroundImage={db.bg}>
+      <QuizBackground backgroundImage={externalQuestions.bg}>
         <QuizContainer>
           <QuizLogo />
           {screenState === screenStates.LOADING && <LoadingWidget />}
