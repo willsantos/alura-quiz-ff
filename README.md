@@ -76,3 +76,6 @@ export default () => (
 ```
 
 </details>
+
+## Teste
+Test commit hook
